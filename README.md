@@ -18,7 +18,6 @@
   <p align="center">
     PASSWD: A type-racer keyboard game.
     <br />
-    <a href="https://github.com/HadockKali/PASSWD"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/HadockKali/PASSWD">View Demo</a>
@@ -59,16 +58,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 The title is self explanatory enough, this was an old project so don't expect a lot of updates.
 
 
 ### Built With
 
-* [JavaScript]()
-* [CSS]()
-* [HTML]()
+* [JavaScript](https://www.java.com/en/)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [HTML](https://en.wikipedia.org/wiki/HTML)
 
 
 
@@ -122,17 +119,13 @@ Project Link: [https://github.com/HadockKali/PASSWD](https://github.com/HadockKa
 
 
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/HadockKali/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/HadockKali/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/HadockKali/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/HadockKali/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/HadockKali/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/HadockKali/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/HadockKali/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/HadockKali/repo/issues
-[license-shield]: https://img.shields.io/github/license/HadockKali/repo.svg?style=for-the-badge
-[license-url]: https://github.com/HadockKali/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/HadockKali/PASSWD.svg?style=for-the-badge
+[contributors-url]: https://github.com/HadockKali/PASSWD/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/HadockKali/PASSWD.svg?style=for-the-badge
+[forks-url]: https://github.com/HadockKali/PASSWD/network/members
+[stars-shield]: https://img.shields.io/github/stars/HadockKali/PASSWD.svg?style=for-the-badge
+[stars-url]: https://github.com/HadockKali/PASSWD/stargazers
+[issues-shield]: https://img.shields.io/github/issues/HadockKali/PASSWD.svg?style=for-the-badge
+[issues-url]: https://github.com/HadockKali/PASSWD/issues
+[license-shield]: https://img.shields.io/github/license/HadockKali/PASSWD.svg?style=for-the-badge
+[license-url]: https://github.com/HadockKali/PASSWD/master/LICENSE.md
