@@ -1,0 +1,345 @@
+/*  # VARIABLES  */
+
+:root {
+
+	/*  Colors  */
+	
+	--theme:        hsl(  0,   0%, 87%);
+	--solved:       hsl(127,  63%, 49%);
+
+	--timer:        hsl(  3,  63%, 36%);
+	--countdown:    hsl(  3, 100%, 61%);
+
+	--background:   hsl(  0,   0%, 20%);
+
+
+	/*  Sizing  */
+
+	--padding:        2.5% 5%;
+	--cell-size:      2em;
+
+}
+
+
+/*  # BASICS  */
+
+body {
+
+	font-family: sans-serif;
+	color:       white;
+	
+	margin: 0;
+	
+	-webkit-user-select: none;
+	-ms-user-select:     none;
+	user-select:         none;
+
+}
+
+.hidden { display: none; }
+
+
+/*  # LAYOUT  */
+
+article,
+article main,
+article header,
+article footer,
+article footer * {
+
+	display:     flex;
+	align-items: center;
+
+}
+
+article,
+article header { flex-direction: column; }
+
+article {
+
+	justify-content: space-between;
+
+	position: absolute;
+	top:      0;
+	bottom:   0;
+	left:     0;
+	right:    0;
+
+	padding: var(--padding);
+
+	background-color: var(--background);
+	
+	overflow: hidden;
+
+}
+
+article main {
+	
+	justify-content: space-between;
+	flex-basis:      75%;
+	flex-wrap:       wrap;
+
+}
+
+article header,
+article footer { flex-basis: 12.5%; }
+
+article header {
+	
+	justify-content: center;
+	align-self:      normal;
+
+}
+
+article header * + * { margin-block-start: 1em; }
+
+article footer span {
+
+	font-size:   1.25em;
+
+	transition:  0.33s all;
+
+}
+
+body:not(.mobile) .mobile   { display: none !important; }
+
+.mobile article * .keyboard { display: none !important; }
+
+.break {
+	
+	display: none;
+
+	flex-basis: 100%;
+
+	height: 0;
+
+}
+
+
+/*  # LAYOUT :: Shader  */
+
+article main .shader {
+
+	position: absolute;
+	top:      0;
+	bottom:   0;
+	left:     0;
+	right:    0;
+
+	box-shadow: inset 0 0 5em var(--shade, transparent);
+
+	transition: 0.175s opacity;
+
+	opacity: 0;
+	pointer-events: none;
+
+}
+
+
+/*  # LAYOUT :: Cell  */
+
+kbd {
+	
+	--font-size-factor: 1.33;
+	--font-size: calc(var(--cell-size) * var(--font-size-factor));
+
+	display:         flex;
+	justify-content: center;
+	align-items:     center;
+
+	position: relative;
+
+	min-width:  var(--cell-size);
+	min-height: var(--cell-size);
+
+	margin:    0.25em;
+	padding: 0 0.25em;
+
+	border:      solid 3px;
+	border-radius: 0.175em;
+
+	font-family:    monospace;
+	font-size:      var(--font-size);
+	line-height:    1;
+	text-transform: uppercase;
+	color:          var(--theme);
+
+	transition: transform 0.1s, opacity 0.175s, color 0.175s;
+
+	box-sizing: border-box;
+
+}
+
+kbd::before {
+
+	content: "";
+
+	position: absolute;
+	top:      0;
+	left:     0;
+	right:    0;
+	bottom:   0;
+
+	background-color: currentColor;
+
+	box-shadow: 0 0 8px;
+
+	opacity: 0.2;
+
+}
+
+kbd span { transition: opacity 0.175s; }
+
+kbd.solved  { color: var(--solved); }
+
+kbd.pressed { transform: scale(0.975); }
+
+kbd.hotkey {
+	
+	--font-size-factor: 1;
+
+}
+
+
+/*  # SCREENS  */
+
+/*  # SCREENS :: Main Menu  */
+
+.menu { z-index: 100; }
+
+.menu main { position: relative; }
+
+.menu .title {
+
+	font-family:  monospace;
+	font-size:    calc(12vw + 1.5em);
+	text-indent: -0.1ch;
+
+}
+
+.menu .tagline {
+	
+	--offset: calc((2.5vh + 1.5em) * -1);
+	
+	/* * important for `.break.small` on mobile devices */
+	display: flex;
+	flex-direction: column;
+
+	position: absolute;
+	
+	transform: translateY(var(--offset));
+
+}
+
+.menu .start { display: flex; }
+
+/*  # SCREENS :: Playfield  */
+
+.playfield header { margin-block-start: -1.5em; }
+
+.playfield .timer {
+
+	width:  100%;
+	height: 1.125vh;
+
+	border-radius: 0.175em;
+
+	background-color: var(--timer);
+
+	overflow: hidden;
+
+}
+
+.playfield .timer .countdown {
+
+	width:  100%;
+	height: 100%;
+
+	background-color: var(--countdown);
+
+}
+
+.playfield.failed main kbd:not(.solved) { color: var(--countdown); }
+
+.playfield footer span { display: none; }
+.playfield.failed footer .startover { display: flex; }
+.playfield:not(.failed):not(.paused) footer .pause {
+
+	display: flex;
+
+	opacity: 0.33;
+
+}
+
+.playfield main kbd { z-index: 11; }
+
+.playfield main .score {
+
+	--shift: -0.05em;
+
+	position: absolute;
+	top:      50%;
+	left:     50%;
+
+	margin-block-start: -0.075ex;
+
+	font-size:      22em;
+	letter-spacing: var(--shift);
+	/* * without `text-indent` of the same value, `letter-spacing` doesn't change score's box size */
+	/* * without changing its box size, score doesn't aling properly after digit shift */
+	text-indent:    var(--shift);
+    text-align:     center;
+
+	transform: translate(-50%, -50%);
+
+	opacity: 0;
+
+	transition: opacity 0.5s, font-size 0.5s;
+
+	z-index: 10;
+
+}
+
+.playfield main .score.visible { opacity: 0.075; }
+
+.playfield.foul main .shader {
+
+	--shade: var(--countdown);
+	
+	opacity: 1;
+
+}
+
+.playfield.paused main .shader {
+
+	--shade: hsl(0, 0%, 100%, 0.5);
+	
+	opacity: 1;
+
+}
+
+.playfield.paused main kbd            { opacity: 0.5;  }
+.playfield.paused main kbd span       { opacity: 0;    }
+.playfield.paused main .score.visible { opacity: 0.5;  }
+.playfield.paused header .timer       { opacity: 0.5;  }
+.playfield.paused footer .unpause     { display: flex; }
+
+@media (max-width: 950px) {
+
+	.playfield main {
+		
+		flex-wrap: wrap;
+		justify-content: center;
+		flex-basis: 37.5%;
+	
+	}
+
+	.break.medium { display: initial; }
+
+}
+
+@media (max-width: 480px) {
+
+	.break.small { display: initial; }
+
+}
