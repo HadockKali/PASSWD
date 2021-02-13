@@ -2,7 +2,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
 
 
@@ -18,7 +17,7 @@
   <p align="center">
     PASSWD: A type-racer keyboard game.
     <br />
-    <a href="https://github.com/HadockKali/PASSWD"><strong>Live Demo »</strong></a>
+    <a href="https://hadockkali.github.io/PASSWD/"><strong>Live Demo »</strong></a>
     <br />
     <br />
     <a href="https://github.com/HadockKali/PASSWD">View Demo</a>
