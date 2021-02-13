@@ -216,8 +216,6 @@ let Game = {
 	},
 
 	foul       () {
-
-		// * penalty == (<time_in_ms> / 10) == (<time_in_s> * 100)
 		let penalty = Game.difficulty.time * 100;
 
 		Game.timer.reduce(penalty);
@@ -449,7 +447,6 @@ let handler = new InteractionHandler();
 handler.register("keydown", { key: "space" }, ActionHandler.contextual);
 handler.register("keydown", { key: "mod"   }, Game.settings);
 
-// * prevent fouls on modifier keys
 handler.register("keydown", { key: "shift" }, function () { /* noop */ });
 handler.register("keydown", { key: "alt"   }, function () { /* noop */ });
 

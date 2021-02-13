@@ -1,16 +1,3 @@
-/**
-* Tock by Mr Chimp - github.com/mrchimp/tock
-* Based on code by James Edwards:
-*    sitepoint.com/creating-accurate-timers-in-javascript/
-*/
-
-/**
-* Modified by Firebrand for use in `password`: https://github.com/FirebrandCoding/password
-*/
-
-/**
-* Called by Tock internally to determine `source`'s offset from current real time
-*/
 let delta = function (source = 0) { return Date.now() - source };
 
 let Tock = function (options) {
@@ -50,10 +37,7 @@ let Tock = function (options) {
 	
 };
 
-/**
-* Called every tick for countdown clocks.
-* i.e. once every this.interval ms
-*/
+
 Tock.prototype._tick = function () {
 	
 	this.time.current += this.interval;
@@ -95,9 +79,7 @@ Tock.prototype._tick = function () {
 	
 };
 
-/**
-* Called by Tock internally - use start() instead
-*/
+
 Tock.prototype._startCountdown = function (duration) {
 	
 	this.duration     = duration;
@@ -110,9 +92,7 @@ Tock.prototype._startCountdown = function (duration) {
 	
 };
 
-/**
-* Called by Tock internally - use start() instead
-*/
+
 Tock.prototype._startTimer = function (offset) {
 	
 	this.time.started = offset || Date.now();
@@ -124,9 +104,7 @@ Tock.prototype._startTimer = function (offset) {
 	
 };
 
-/**
-* Reset the clock
-*/
+
 Tock.prototype.reset = function () {
 	
 	if (this.countdown) return false;
@@ -136,9 +114,6 @@ Tock.prototype.reset = function () {
 	
 };
 
-/**
-* Restart (stop -> start) the clock
-*/
 Tock.prototype.restart = function () {
 	
 	this.stop();
@@ -147,8 +122,8 @@ Tock.prototype.restart = function () {
 };
 
 /**
-* Start the clock.
-* @param {Various} time Accepts a single "time" argument in ms
+* Timer start/ accepta timp de pe un segment argumentat in "ms"
+* @param {Various} time
 */
 Tock.prototype.start = function (time = 0) {
 	
@@ -163,9 +138,6 @@ Tock.prototype.start = function (time = 0) {
 	
 };
 
-/**
-* Stop the clock and clear the timeout
-*/
 Tock.prototype.stop = function () {
 	
 	this.time.paused = this.left();
@@ -179,9 +151,7 @@ Tock.prototype.stop = function () {
 	
 };
 
-/**
-* Pause the clock.
-*/
+
 Tock.prototype.pause = function () {
 	
 	if (!this.running) return;
@@ -191,9 +161,6 @@ Tock.prototype.pause = function () {
 	
 };
 
-/**
-* Unpause the clock.
-*/
 Tock.prototype.unpause = function () {
 	
 	if (!this.time.paused) return;
@@ -206,10 +173,7 @@ Tock.prototype.unpause = function () {
 	
 };
 
-/**
-* Get the current clock time in ms.
-* @return {Integer} Number of milliseconds ellapsed/remaining
-*/
+
 Tock.prototype.left = function () {
 	
 	if (!this.running) return this.time.paused || this.time.ended;
@@ -221,10 +185,7 @@ Tock.prototype.left = function () {
 	
 };
 
-/**
-* Remove `value` ms from `this.duration`
-* TODO: expand to include reducing current time for timer
-*/
+//FIXME elaborare pentru reducerea timp/frame pierdut in pauza (in special pe telefoane)
 Tock.prototype.reduce = function (value) {
 
 	this.duration = Math.max(this.duration - value, 0);

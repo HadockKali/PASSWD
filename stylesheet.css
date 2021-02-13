@@ -1,8 +1,8 @@
-/*  # VARIABLES  */
+/*  # Variabile  */
 
 :root {
 
-	/*  Colors  */
+	/*  Culori :)  */
 	
 	--theme:        hsl(  0,   0%, 87%);
 	--solved:       hsl(127,  63%, 49%);
@@ -13,7 +13,7 @@
 	--background:   hsl(  0,   0%, 20%);
 
 
-	/*  Sizing  */
+	/*  Marimi  */
 
 	--padding:        2.5% 5%;
 	--cell-size:      2em;
@@ -21,7 +21,7 @@
 }
 
 
-/*  # BASICS  */
+/*  # Basic shit  */
 
 body {
 
@@ -39,7 +39,7 @@ body {
 .hidden { display: none; }
 
 
-/*  # LAYOUT  */
+/*  # Spatiere  */
 
 article,
 article main,
@@ -116,7 +116,7 @@ body:not(.mobile) .mobile   { display: none !important; }
 }
 
 
-/*  # LAYOUT :: Shader  */
+/*  # Shader  */
 
 article main .shader {
 
@@ -136,7 +136,7 @@ article main .shader {
 }
 
 
-/*  # LAYOUT :: Cell  */
+/*  # Celule si aparitii/animatii  */
 
 kbd {
 	
@@ -201,9 +201,9 @@ kbd.hotkey {
 }
 
 
-/*  # SCREENS  */
+/*  # Scenarii  */
 
-/*  # SCREENS :: Main Menu  */
+/*  # Scenarii :: Main Menu  */
 
 .menu { z-index: 100; }
 
@@ -221,7 +221,7 @@ kbd.hotkey {
 	
 	--offset: calc((2.5vh + 1.5em) * -1);
 	
-	/* * important for `.break.small` on mobile devices */
+	/* *afecteaza telefoane .break.mobile */
 	display: flex;
 	flex-direction: column;
 
@@ -233,7 +233,7 @@ kbd.hotkey {
 
 .menu .start { display: flex; }
 
-/*  # SCREENS :: Playfield  */
+/*  # Scenarii :: Playfield  */
 
 .playfield header { margin-block-start: -1.5em; }
 
@@ -285,8 +285,6 @@ kbd.hotkey {
 
 	font-size:      22em;
 	letter-spacing: var(--shift);
-	/* * without `text-indent` of the same value, `letter-spacing` doesn't change score's box size */
-	/* * without changing its box size, score doesn't aling properly after digit shift */
 	text-indent:    var(--shift);
     text-align:     center;
 

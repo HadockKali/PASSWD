@@ -31,7 +31,7 @@ class CountUp {
             
         };
         
-        instance.finalEndVal = null; // for smart easing
+        instance.finalEndVal = null;
         instance.easing = true;
         instance.countDown = false;
         instance.error = '';
@@ -46,7 +46,7 @@ class CountUp {
             
             instance.remaining = instance.duration - progress;
             
-            // to ease or not to ease
+
             if (instance.easing) {
                 
                 if (instance.countDown) {
@@ -73,7 +73,7 @@ class CountUp {
                 
             };
             
-            // don't go past endVal since progress can exceed duration in the last frame
+
             if (instance.countDown) {
                 
                 instance.frameVal = (instance.frameVal < instance.endVal) ? instance.endVal : instance.frameVal;
@@ -84,20 +84,20 @@ class CountUp {
                 
             };
             
-            // decimal
+
             instance.frameVal = Math.round(instance.frameVal * instance.decimalMult) / instance.decimalMult;
             
-            // format and print value
+
             instance.printValue(instance.frameVal);
             
-            // whether to continue
+
             if (progress < instance.duration) {
                 
                 instance.rAF = requestAnimationFrame(instance.count);
                 
             } else if (instance.finalEndVal !== null) {
                 
-                // smart easing
+
                 instance.update(instance.finalEndVal);
                 
             } else if (instance.callback) {
@@ -108,7 +108,7 @@ class CountUp {
             
         };
         
-        // default format and easing functions
+
         instance.formatNumber = function (num) {
             
             var neg = num < 0 ? '-' : '';
@@ -116,7 +116,7 @@ class CountUp {
             let x3;
             
             let result = Math.abs(num).toFixed(instance.options.decimalPlaces).toString();
-            // result += '';
+
             
             let x = result.split('.');
             
@@ -140,7 +140,7 @@ class CountUp {
                 
             };
             
-            // optional numeral substitution
+
             if (instance.options.numerals && instance.options.numerals.length) {
                 
                 x1 = x1.replace(/[0-9]/g, function (w) { return instance.options.numerals[+w]; });
@@ -198,7 +198,7 @@ class CountUp {
         
     };
     
-    // determines where easing starts and whether to count down or up
+
     determineDirectionAndSmartEasing () {
         
         var end = this.finalEndVal 
@@ -240,7 +240,7 @@ class CountUp {
         
     };
     
-    // start animation
+
     start (callback) {
         
         if (this.error) return;
@@ -259,7 +259,7 @@ class CountUp {
             
         }
     }
-    // pause/resume animation
+
     pauseResume () {
         
         if (!this.paused) {
@@ -280,7 +280,7 @@ class CountUp {
         
         this.paused = !this.paused;
     }
-    // reset to startVal so animation can be run again
+
     reset () {
         
         cancelAnimationFrame(this.rAF);
@@ -293,7 +293,7 @@ class CountUp {
         
     };
     
-    // pass a new endVal and start animation
+
     update (newEndVal) {
         
         cancelAnimationFrame(this.rAF);

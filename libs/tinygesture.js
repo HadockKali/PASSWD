@@ -62,7 +62,7 @@ class TinyGesture {
 		this.touchEndX = null;
 		this.touchEndY = null;
 		
-		// Long press.
+
 		this.longPressTimer = setTimeout(() => this.fire('longpress', event), this.options.longPressTime);
 		
 		this.fire('panstart', event);
@@ -131,7 +131,7 @@ class TinyGesture {
 
 				if (x < 0) {
 					
-					// Left swipe.
+
 					if (this.velocityX < -this.options.velocityThreshold || x < -this.disregardVelocityThresholdX) {
 						
 						this.fire('swipeleft', event);
@@ -140,7 +140,7 @@ class TinyGesture {
 					
 				} else {
 					
-					// Right swipe.
+
 					if (this.velocityX > this.options.velocityThreshold || x > this.disregardVelocityThresholdX) {
 						
 						this.fire('swiperight', event);
@@ -155,7 +155,7 @@ class TinyGesture {
 
 				if (y < 0) {
 					
-					// Upward swipe.
+
 					if (this.velocityY < -this.options.velocityThreshold || y < -this.disregardVelocityThresholdY) {
 
 						this.fire('swipeup', event);
@@ -164,7 +164,7 @@ class TinyGesture {
 					
 				} else {
 					
-					// Downward swipe.
+
 					if (this.velocityY > this.options.velocityThreshold || y > this.disregardVelocityThresholdY) {
 
 						this.fire('swipedown', event);
@@ -177,7 +177,7 @@ class TinyGesture {
 			
 		} else if (absX < this.options.pressThreshold && absY < this.options.pressThreshold) {
 			
-			// Tap.
+
 			if (this.doubleTapWaiting) {
 				
 				this.doubleTapWaiting = false;
@@ -218,7 +218,7 @@ TinyGesture.defaults = {
 	
 };
 
-// Passive feature detection.
+
 let passiveIfSupported = false;
 
 try {

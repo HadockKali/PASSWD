@@ -120,7 +120,7 @@ class InteractionHandler {
 
 	static conditions = {
 
-		// * each condition must return a single `true` or `false`
+
 
 		"modifiers": function (condition, event) {
 
