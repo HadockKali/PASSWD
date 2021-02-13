@@ -18,6 +18,7 @@
   <p align="center">
     PASSWD: A type-racer keyboard game.
     <br />
+    <a href="https://github.com/HadockKali/PASSWD"><strong>Live Demo »</strong></a>
     <br />
     <br />
     <a href="https://github.com/HadockKali/PASSWD">View Demo</a>
@@ -128,4 +129,4 @@ Project Link: [https://github.com/HadockKali/PASSWD](https://github.com/HadockKa
 [issues-shield]: https://img.shields.io/github/issues/HadockKali/PASSWD.svg?style=for-the-badge
 [issues-url]: https://github.com/HadockKali/PASSWD/issues
 [license-shield]: https://img.shields.io/github/license/HadockKali/PASSWD.svg?style=for-the-badge
-[license-url]: https://github.com/HadockKali/PASSWD/master/LICENSE.md
+[license-url]: https://github.com/HadockKali/PASSWD/blob/main/LICENSE.md
