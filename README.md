@@ -20,7 +20,6 @@
     <a href="https://hadockkali.github.io/PASSWD/"><strong>Live Demo »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/HadockKali/PASSWD">View Demo</a>
     ·
     <a href="https://github.com/HadockKali/PASSWD/issues">Report Bug</a>
     ·
