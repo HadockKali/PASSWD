@@ -193,6 +193,7 @@ let Game = {
 
 		$screen.menu && $screen.menu.classList.add("hidden");
 
+		$score.classList.add("visible");
 	},
 
 	pause      () {
@@ -201,7 +202,6 @@ let Game = {
 
 		$playfield.classList.add("paused");
 
-		$score.classList.add("visible");
 
 		Game.status = "paused";
 
@@ -213,7 +213,6 @@ let Game = {
 
 		$playfield.classList.remove("paused");
 
-		$score.classList.remove("visible");
 
 		Game.status = "ongoing";
 
