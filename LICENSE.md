@@ -1,2 +1,2 @@
 
-Copyright (C) Hadock 2021.
+Copyright (C) Hadock & Gondulf 2021.
