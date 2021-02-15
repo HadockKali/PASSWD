@@ -113,6 +113,8 @@ Copyright (c) Hadock 2021. See `LICENSE` for more information.
 
 Hadock - [@navruc](https://twitter.com/@navruc) - navruc.dimitri@gmail.com
 
+Gondulf - Stan Iosif
+
 Project Link: [https://github.com/HadockKali/PASSWD](https://github.com/HadockKali/PASSWD)
 
 
