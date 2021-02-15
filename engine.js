@@ -71,7 +71,7 @@ let Game = {
 
 	score: {
 
-		current: 0,
+		current: null,
 
 		highest: 0,
 
