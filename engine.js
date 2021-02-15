@@ -58,7 +58,7 @@ let Game = {
 	difficulty: {
 
 		time:   5, //5 def
-		length: 8, //8 def
+		length: 28, //8 def
 
 		set: {
 
