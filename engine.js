@@ -201,6 +201,8 @@ let Game = {
 
 		$playfield.classList.add("paused");
 
+		$score.classList.add("visible");
+
 		Game.status = "paused";
 
 	},
@@ -210,6 +212,8 @@ let Game = {
 		Game.timer.unpause();
 
 		$playfield.classList.remove("paused");
+
+		$score.classList.remove("visible");
 
 		Game.status = "ongoing";
 
