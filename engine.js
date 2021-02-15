@@ -9,7 +9,7 @@ let $playfield = document.querySelector(".playfield"),
 	};
 	
 let mobile = isMobile().any;
-
+//fuck citar
 let Password = {
 
 	current: [],
