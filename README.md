@@ -56,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The title is self explanatory enough, this was an old project so don't expect a lot of updates.
+The title is self explanatory enough, the story behind this project is pretty simple as well. I had a problem with money, couldn't afford my password manager anymore, and decided to make my own, but in the process a school project came to light and it was transformed into a type-racing game similar to 'TypeRacer'. It's nothing fancy but keeps you entertained, hope you like it!
 
 
 ### Built With

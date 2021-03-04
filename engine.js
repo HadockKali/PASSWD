@@ -6,7 +6,7 @@ let $playfield = document.querySelector(".playfield"),
   };
 
 let mobile = isMobile().any;
-// main kbd = desktop keyboard lista de posibilitati combinatii
+// main kbd = desktop keyboard | lista de posibilitati combinatii
 let Password = {
   current: [],
 
