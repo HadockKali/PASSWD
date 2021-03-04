@@ -150,3 +150,4 @@ class InteractionHandler {
     return response;
   }
 }
+//responsabil pentru transmutarea actiunilor desktop->mobile

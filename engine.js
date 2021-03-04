@@ -6,7 +6,7 @@ let $playfield = document.querySelector(".playfield"),
   };
 
 let mobile = isMobile().any;
-//fuck citar
+// main kbd = desktop keyboard lista de posibilitati combinatii
 let Password = {
   current: [],
 
@@ -28,7 +28,7 @@ let Password = {
   solved() {
     return Password.current.every((cell) => cell.solved);
   },
-
+// modul generare combinatii
   generate() {
     let keys = Password.type
       ? Array.through(Game.difficulty.length, 1)
@@ -52,10 +52,10 @@ let Game = {
   timer: null,
 
   countup: null,
-
+// de aici se poate ajusta dificultatea in functie de timp si lungime string
   difficulty: {
-    time: 5, //5 def
-    length: 8, //8 def
+    time: 5, //5 default
+    length: 8, //8 default
 
     set: {
       time(value) {
@@ -145,13 +145,16 @@ let Game = {
 
     Game.status = "ongoing";
   },
+// Triggers pentru eventuri
 
+//fs lose
   lose() {
     $playfield.classList.add("failed");
 
     Game.status = "lost";
   },
 
+  //fs succeed
   succeed() {
     let reward = (Game.difficulty.length / Game.difficulty.time) * 20;
 
@@ -160,6 +163,7 @@ let Game = {
     Game.resolve();
   },
 
+  //fs start
   start() {
     Game.score.reset();
 
@@ -170,6 +174,7 @@ let Game = {
     $score.classList.add("visible");
   },
 
+  //fs pause
   pause() {
     Game.timer.pause();
 
@@ -178,6 +183,7 @@ let Game = {
     Game.status = "paused";
   },
 
+  //fs unpause
   unpause() {
     Game.timer.unpause();
 
@@ -185,7 +191,9 @@ let Game = {
 
     Game.status = "ongoing";
   },
-
+/* Formula pentru key-uri gresite:
+ * penalty == (<time_in_ms> / 10) == (<time_in_s> * 100)
+ */
   foul() {
     let penalty = Game.difficulty.time * 100;
 
@@ -202,7 +210,7 @@ let Game = {
 
   save() {},
 };
-
+// actiuni/event-uri
 let ActionHandler = {
   _pressed: [],
 
@@ -217,7 +225,7 @@ let ActionHandler = {
 
     action[Game.status]();
   },
-
+// mobile things TODO: de schimbat swipe down in instantele chrome mobile forteaza 2 actiuni, una dintre acestea este refresh.
   swipeup() {
     let action = {
       initial: Game.start,
@@ -229,7 +237,7 @@ let ActionHandler = {
 
     action[Game.status]();
   },
-
+// FIXME: de rectificat (vezi TODO de mai sus)
   swipedown() {
     if (Game.status == "ongoing") Game.pause();
   },
@@ -375,7 +383,7 @@ let handler = new InteractionHandler();
 
 handler.register("keydown", { key: "space" }, ActionHandler.contextual);
 handler.register("keydown", { key: "mod" }, Game.settings);
-
+// in caz de apasari accidentale anti-foul module
 handler.register("keydown", { key: "shift" }, function () {
   /* noop */
 });
