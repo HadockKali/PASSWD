@@ -27,7 +27,7 @@ class CountUp {
       suffix: "",
     };
 
-    instance.finalEndVal = null;
+    instance.finalEndVal = null; //easing
     instance.easing = true;
     instance.countDown = false;
     instance.error = "";
@@ -40,7 +40,7 @@ class CountUp {
       var progress = timestamp - instance.startTime;
 
       instance.remaining = instance.duration - progress;
-
+//if easing vezi #30
       if (instance.easing) {
         if (instance.countDown) {
           instance.frameVal =
@@ -60,6 +60,7 @@ class CountUp {
           );
         }
       } else {
+        //ATENTIE! nu merge mai mult decat endVal pt ca progresu' poate depasii timer in ultimu' frame
         if (instance.countDown) {
           instance.frameVal =
             instance.startVal -
@@ -84,22 +85,24 @@ class CountUp {
             ? instance.endVal
             : instance.frameVal;
       }
-
+//punct decimal
       instance.frameVal =
         Math.round(instance.frameVal * instance.decimalMult) /
         instance.decimalMult;
-
+//formatare si afisare valoare
       instance.printValue(instance.frameVal);
-
+//continua?
       if (progress < instance.duration) {
         instance.rAF = requestAnimationFrame(instance.count);
       } else if (instance.finalEndVal !== null) {
+        //easing #30
         instance.update(instance.finalEndVal);
       } else if (instance.callback) {
         instance.callback();
       }
     };
 
+    //format simplu si functii easing
     instance.formatNumber = function (num) {
       var neg = num < 0 ? "-" : "";
 
@@ -108,7 +111,7 @@ class CountUp {
       let result = Math.abs(num)
         .toFixed(instance.options.decimalPlaces)
         .toString();
-
+        //result += '';
       let x = result.split(".");
 
       let x1 = x[0];
@@ -126,7 +129,7 @@ class CountUp {
 
         x1 = x3;
       }
-
+        //instanta opt. de substitutie 'numerals'
       if (instance.options.numerals && instance.options.numerals.length) {
         x1 = x1.replace(/[0-9]/g, function (w) {
           return instance.options.numerals[+w];
@@ -182,6 +185,7 @@ class CountUp {
     }
   }
 
+    //determina unde incepe smart easing si daca numara crescator sau descrescator 
   determineDirectionAndSmartEasing() {
     var end = this.finalEndVal ? this.finalEndVal : this.endVal;
 
@@ -209,6 +213,7 @@ class CountUp {
     }
   }
 
+  //incepe animatia
   start(callback) {
     if (this.error) return;
 
@@ -223,6 +228,7 @@ class CountUp {
     }
   }
 
+  //mai multa animatie :P (self explanatory)
   pauseResume() {
     if (!this.paused) {
       cancelAnimationFrame(this.rAF);
@@ -238,7 +244,7 @@ class CountUp {
 
     this.paused = !this.paused;
   }
-
+//se resetaza catre startVal ca animatia sa poata fi reluata
   reset() {
     cancelAnimationFrame(this.rAF);
 
@@ -249,6 +255,7 @@ class CountUp {
     this.printValue(this.startVal);
   }
 
+  //updateaza endVal si incepe animatia
   update(newEndVal) {
     cancelAnimationFrame(this.rAF);
 

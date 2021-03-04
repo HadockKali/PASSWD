@@ -1,3 +1,4 @@
+//Tock este implementat din libraria publica accesibila aici: https://github.com/mrchimp/tock [Tock este un "ceas" cu functie de tip countdown/timer]
 let delta = function (source = 0) {
   return Date.now() - source;
 };

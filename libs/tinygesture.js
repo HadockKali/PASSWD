@@ -235,3 +235,4 @@ try {
     })
   );
 } catch (err) {}
+//TODO: def actiuni tap,longpress etc...
