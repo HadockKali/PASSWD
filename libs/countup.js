@@ -185,7 +185,7 @@ class CountUp {
     }
   }
 
-    //determina unde incepe smart easing si daca numara crescator sau descrescator 
+    // determina unde incepe smart easing si daca numara crescator sau descrescator
   determineDirectionAndSmartEasing() {
     var end = this.finalEndVal ? this.finalEndVal : this.endVal;
 
