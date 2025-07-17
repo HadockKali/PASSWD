@@ -104,7 +104,7 @@ Contributions are what make the open source community such an amazing place to l
 <!-- LICENSE -->
 ## License
 
-Copyright (c) Hadock & Gondulf 2021. See `LICENSE` for more information.
+Copyright (c) Hadock & Gondulf 2021. See `LICENSE.md` for more information.
 
 
 
